@@ -113,6 +113,18 @@ img {
 .dropdown-menu {
     border: none;
     box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    display: none;
+}
+
+/* Desktop: Show dropdown on hover */
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+.dropdown-menu.show {
+    display: block;
 }
 
 .dropdown-item {

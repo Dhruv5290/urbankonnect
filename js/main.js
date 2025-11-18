@@ -233,44 +233,80 @@
         });
     });
 
-    // Mobile Menu Close on Link Click
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Services Dropdown - Custom behavior
+    const servicesDropdown = document.getElementById('servicesDropdown');
+    const servicesDropdownMenu = servicesDropdown ? servicesDropdown.nextElementSibling : null;
+
+    if (servicesDropdown) {
+        servicesDropdown.addEventListener('click', function(e) {
+            if (window.innerWidth < 992) {
+                // Mobile: Toggle dropdown menu
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (servicesDropdownMenu) {
+                    servicesDropdownMenu.classList.toggle('show');
+                }
+            }
+            // Desktop: Let the link navigate to services.html (CSS handles hover)
+        });
+    }
+
+    // Close dropdown when clicking dropdown items on mobile
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
     const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (window.innerWidth < 992) {
+                // Close the dropdown menu
+                if (servicesDropdownMenu) {
+                    servicesDropdownMenu.classList.remove('show');
+                }
+
+                // Close the mobile menu
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                }
+            }
+        });
+    });
+
+    // Mobile Menu Close on Regular Link Click
+    const navLinks = document.querySelectorAll('.nav-link:not([data-bs-toggle])');
 
     if (navbarCollapse) {
         navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Don't close menu if it's the Services dropdown link on mobile
-                if (this.hasAttribute('data-bs-toggle') && window.innerWidth < 992) {
-                    e.preventDefault(); // Prevent navigation to services.html on mobile
-                    return;
-                }
-
-                // Close menu for regular links on mobile
-                if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && !this.hasAttribute('data-bs-toggle')) {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
                     const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                        toggle: true
+                        toggle: false
                     });
+                    bsCollapse.hide();
                 }
             });
         });
     }
 
-    // Services Dropdown - Custom behavior for mobile
-    const servicesDropdown = document.getElementById('servicesDropdown');
-    if (servicesDropdown) {
-        servicesDropdown.addEventListener('click', function(e) {
-            // On desktop, allow navigation to services.html
-            // On mobile, show dropdown menu
-            if (window.innerWidth < 992) {
-                e.preventDefault();
+    // Prevent dropdown from staying open on desktop
+    if (servicesDropdown && servicesDropdownMenu) {
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth >= 992) {
+                // Desktop: Remove show class if clicked outside
+                if (!servicesDropdown.contains(e.target) && !servicesDropdownMenu.contains(e.target)) {
+                    servicesDropdownMenu.classList.remove('show');
+                }
             }
         });
     }
 
     // Add Active Class to Current Nav Item
     const currentLocation = window.location.pathname;
-    navLinks.forEach(link => {
+    const allNavLinks = document.querySelectorAll('.nav-link');
+    allNavLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
         if (linkPath && currentLocation.includes(linkPath)) {
             link.classList.add('active');
