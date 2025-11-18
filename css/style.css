@@ -105,6 +105,11 @@ img {
     padding: 8px 20px !important;
 }
 
+/* Remove dropdown arrow icon */
+.nav-link::after {
+    display: none !important;
+}
+
 .dropdown-menu {
     border: none;
     box-shadow: 0 5px 25px rgba(0,0,0,0.1);
@@ -123,6 +128,26 @@ img {
 .dropdown-item i {
     margin-right: 10px;
     width: 20px;
+}
+
+/* Mobile dropdown styling */
+@media (max-width: 991px) {
+    .dropdown-menu {
+        border: none;
+        box-shadow: none;
+        padding-left: 20px;
+        background-color: transparent;
+    }
+
+    .dropdown-item {
+        color: var(--text-color) !important;
+        padding: 8px 20px;
+    }
+
+    .dropdown-item:hover {
+        background-color: rgba(230, 126, 34, 0.1);
+        color: var(--secondary-color) !important;
+    }
 }
 
 /* ===== Buttons ===== */

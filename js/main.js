@@ -239,13 +239,32 @@
 
     if (navbarCollapse) {
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+            link.addEventListener('click', function(e) {
+                // Don't close menu if it's the Services dropdown link on mobile
+                if (this.hasAttribute('data-bs-toggle') && window.innerWidth < 992) {
+                    e.preventDefault(); // Prevent navigation to services.html on mobile
+                    return;
+                }
+
+                // Close menu for regular links on mobile
+                if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && !this.hasAttribute('data-bs-toggle')) {
                     const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
                         toggle: true
                     });
                 }
             });
+        });
+    }
+
+    // Services Dropdown - Custom behavior for mobile
+    const servicesDropdown = document.getElementById('servicesDropdown');
+    if (servicesDropdown) {
+        servicesDropdown.addEventListener('click', function(e) {
+            // On desktop, allow navigation to services.html
+            // On mobile, show dropdown menu
+            if (window.innerWidth < 992) {
+                e.preventDefault();
+            }
         });
     }
 
