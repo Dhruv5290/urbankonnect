@@ -530,6 +530,42 @@ section {
     margin: 0;
 }
 
+/* Swiper Navigation Buttons */
+.testimonials-slider .swiper-button-next,
+.testimonials-slider .swiper-button-prev {
+    color: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.9);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.testimonials-slider .swiper-button-next:after,
+.testimonials-slider .swiper-button-prev:after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.testimonials-slider .swiper-button-next:hover,
+.testimonials-slider .swiper-button-prev:hover {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+/* Swiper Pagination */
+.testimonials-slider .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: var(--dark-gray);
+    opacity: 0.3;
+}
+
+.testimonials-slider .swiper-pagination-bullet-active {
+    background: var(--secondary-color);
+    opacity: 1;
+}
+
 /* ===== Team Cards ===== */
 .team-card {
     background: #fff;
