@@ -292,16 +292,6 @@
         });
     }
 
-    // Mobile: Services is a regular link, no dropdown functionality
-    if (servicesDropdown) {
-        servicesDropdown.addEventListener('click', function(e) {
-            if (window.innerWidth < 992) {
-                // On mobile, just let it navigate to services.html (no dropdown)
-                // Don't prevent default - allow normal link behavior
-            }
-        });
-    }
-
     // Mobile Menu Close on Link Click (including Services)
     const navLinks = document.querySelectorAll('.nav-link');
 

@@ -189,10 +189,10 @@ img {
         display: none !important;
     }
 
-    /* Services link behaves as regular nav item on mobile */
+    /* Ensure Services link has same styling as other nav items on mobile */
     .nav-item.dropdown .nav-link {
-        display: block;
-        padding: 0.5rem 1rem;
+        margin: 5px 0;
+        padding: 0;
     }
 }
 
