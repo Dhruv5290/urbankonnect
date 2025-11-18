@@ -1,0 +1,37 @@
+# robots.txt for UrbanKonnect
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow search engines to crawl CSS and JS for better indexing
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://www.urbankonnect.com/sitemap.xml
+
+# Crawl-delay (optional - adjust as needed)
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
