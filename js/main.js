@@ -115,6 +115,7 @@
     if (typeof Swiper !== 'undefined' && document.querySelector('.testimonials-slider')) {
         new Swiper('.testimonials-slider', {
             slidesPerView: 1,
+            slidesPerGroup: 1,
             spaceBetween: 30,
             loop: true,
             autoplay: {
@@ -123,7 +124,8 @@
             },
             pagination: {
                 el: '.swiper-pagination',
-                clickable: true
+                clickable: true,
+                dynamicBullets: false
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -132,10 +134,12 @@
             breakpoints: {
                 768: {
                     slidesPerView: 2,
+                    slidesPerGroup: 2,
                     spaceBetween: 30
                 },
                 1024: {
                     slidesPerView: 2,
+                    slidesPerGroup: 2,
                     spaceBetween: 40
                 }
             }
