@@ -233,73 +233,89 @@
         });
     });
 
-    // Services Dropdown - Custom behavior
+    // Navigation Dropdown - Desktop hover behavior & Mobile simple link
+    const dropdownTrigger = document.querySelector('.nav-item.dropdown');
     const servicesDropdown = document.getElementById('servicesDropdown');
     const servicesDropdownMenu = servicesDropdown ? servicesDropdown.nextElementSibling : null;
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    let dropdownTimer;
 
-    if (servicesDropdown) {
-        servicesDropdown.addEventListener('click', function(e) {
-            if (window.innerWidth < 992) {
-                // Mobile: Toggle dropdown menu
-                e.preventDefault();
-                e.stopPropagation();
+    // Desktop: Hover-based dropdown with smooth transitions
+    if (dropdownTrigger && servicesDropdownMenu) {
+        // Show dropdown on hover over the nav-item
+        dropdownTrigger.addEventListener('mouseenter', function() {
+            if (window.innerWidth >= 992) {
+                clearTimeout(dropdownTimer);
+                servicesDropdownMenu.classList.add('show');
+            }
+        });
 
-                if (servicesDropdownMenu) {
-                    servicesDropdownMenu.classList.toggle('show');
+        // Hide dropdown when leaving the nav-item
+        dropdownTrigger.addEventListener('mouseleave', function() {
+            if (window.innerWidth >= 992) {
+                dropdownTimer = setTimeout(function() {
+                    servicesDropdownMenu.classList.remove('show');
+                }, 150);
+            }
+        });
+
+        // Keep dropdown open when hovering over it
+        servicesDropdownMenu.addEventListener('mouseenter', function() {
+            if (window.innerWidth >= 992) {
+                clearTimeout(dropdownTimer);
+            }
+        });
+
+        // Hide when leaving dropdown menu
+        servicesDropdownMenu.addEventListener('mouseleave', function() {
+            if (window.innerWidth >= 992) {
+                dropdownTimer = setTimeout(function() {
+                    servicesDropdownMenu.classList.remove('show');
+                }, 150);
+            }
+        });
+
+        // Click outside to close on desktop
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth >= 992) {
+                if (!dropdownTrigger.contains(e.target)) {
+                    servicesDropdownMenu.classList.remove('show');
                 }
             }
-            // Desktop: Let the link navigate to services.html (CSS handles hover)
+        });
+
+        // ESC key to close on desktop
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && window.innerWidth >= 992) {
+                servicesDropdownMenu.classList.remove('show');
+            }
         });
     }
 
-    // Close dropdown when clicking dropdown items on mobile
-    const dropdownItems = document.querySelectorAll('.dropdown-item');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
+    // Mobile: Services is a regular link, no dropdown functionality
+    if (servicesDropdown) {
+        servicesDropdown.addEventListener('click', function(e) {
             if (window.innerWidth < 992) {
-                // Close the dropdown menu
-                if (servicesDropdownMenu) {
-                    servicesDropdownMenu.classList.remove('show');
-                }
-
-                // Close the mobile menu
-                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                        toggle: false
-                    });
-                    bsCollapse.hide();
-                }
+                // On mobile, just let it navigate to services.html (no dropdown)
+                // Don't prevent default - allow normal link behavior
             }
         });
-    });
+    }
 
-    // Mobile Menu Close on Regular Link Click
-    const navLinks = document.querySelectorAll('.nav-link:not([data-bs-toggle])');
+    // Mobile Menu Close on Link Click (including Services)
+    const navLinks = document.querySelectorAll('.nav-link');
 
     if (navbarCollapse) {
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+                    // Close the mobile menu after clicking any link
                     const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
                         toggle: false
                     });
                     bsCollapse.hide();
                 }
             });
-        });
-    }
-
-    // Prevent dropdown from staying open on desktop
-    if (servicesDropdown && servicesDropdownMenu) {
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth >= 992) {
-                // Desktop: Remove show class if clicked outside
-                if (!servicesDropdown.contains(e.target) && !servicesDropdownMenu.contains(e.target)) {
-                    servicesDropdownMenu.classList.remove('show');
-                }
-            }
         });
     }
 

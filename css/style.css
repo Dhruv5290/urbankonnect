@@ -110,21 +110,23 @@ img {
     display: none !important;
 }
 
+/* Dropdown Menu - Desktop Configuration */
 .dropdown-menu {
     border: none;
     box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-    display: none;
-}
-
-/* Desktop: Show dropdown on hover */
-@media (min-width: 992px) {
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease, visibility 200ms ease, transform 200ms ease;
+    pointer-events: none;
+    transform: translateY(-10px);
+    display: block;
 }
 
 .dropdown-menu.show {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 .dropdown-item {
@@ -142,23 +144,55 @@ img {
     width: 20px;
 }
 
-/* Mobile dropdown styling */
-@media (max-width: 991px) {
+/* Desktop: Dropdown positioning and invisible bridge */
+@media (min-width: 992px) {
+    .nav-item.dropdown {
+        position: relative;
+    }
+
     .dropdown-menu {
-        border: none;
-        box-shadow: none;
-        padding-left: 20px;
-        background-color: transparent;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 220px;
+        background: white;
+        border-radius: 8px;
+        padding: 0.5rem 0;
+        z-index: 1000;
+        margin-top: 0;
     }
 
-    .dropdown-item {
-        color: var(--text-color) !important;
-        padding: 8px 20px;
+    /* Invisible bridge to prevent gap issues */
+    .nav-item.dropdown::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: transparent;
+    }
+}
+
+/* Mobile: Completely hide dropdown, Services is a regular link */
+@media (max-width: 991px) {
+    /* Hide dropdown menu completely on mobile */
+    .dropdown-menu {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
     }
 
-    .dropdown-item:hover {
-        background-color: rgba(230, 126, 34, 0.1);
-        color: var(--secondary-color) !important;
+    /* Remove dropdown indicators on mobile */
+    .nav-item.dropdown::after {
+        display: none !important;
+    }
+
+    /* Services link behaves as regular nav item on mobile */
+    .nav-item.dropdown .nav-link {
+        display: block;
+        padding: 0.5rem 1rem;
     }
 }
 
