@@ -233,67 +233,9 @@
         });
     });
 
-    // Navigation Dropdown - Desktop hover behavior & Mobile simple link
-    const dropdownTrigger = document.querySelector('.nav-item.dropdown');
-    const servicesDropdown = document.getElementById('servicesDropdown');
-    const servicesDropdownMenu = servicesDropdown ? servicesDropdown.nextElementSibling : null;
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    let dropdownTimer;
-
-    // Desktop: Hover-based dropdown with smooth transitions
-    if (dropdownTrigger && servicesDropdownMenu) {
-        // Show dropdown on hover over the nav-item
-        dropdownTrigger.addEventListener('mouseenter', function() {
-            if (window.innerWidth >= 992) {
-                clearTimeout(dropdownTimer);
-                servicesDropdownMenu.classList.add('show');
-            }
-        });
-
-        // Hide dropdown when leaving the nav-item
-        dropdownTrigger.addEventListener('mouseleave', function() {
-            if (window.innerWidth >= 992) {
-                dropdownTimer = setTimeout(function() {
-                    servicesDropdownMenu.classList.remove('show');
-                }, 150);
-            }
-        });
-
-        // Keep dropdown open when hovering over it
-        servicesDropdownMenu.addEventListener('mouseenter', function() {
-            if (window.innerWidth >= 992) {
-                clearTimeout(dropdownTimer);
-            }
-        });
-
-        // Hide when leaving dropdown menu
-        servicesDropdownMenu.addEventListener('mouseleave', function() {
-            if (window.innerWidth >= 992) {
-                dropdownTimer = setTimeout(function() {
-                    servicesDropdownMenu.classList.remove('show');
-                }, 150);
-            }
-        });
-
-        // Click outside to close on desktop
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth >= 992) {
-                if (!dropdownTrigger.contains(e.target)) {
-                    servicesDropdownMenu.classList.remove('show');
-                }
-            }
-        });
-
-        // ESC key to close on desktop
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && window.innerWidth >= 992) {
-                servicesDropdownMenu.classList.remove('show');
-            }
-        });
-    }
-
-    // Mobile Menu Close on Link Click (including Services)
+    // Mobile Menu Close on Link Click
     const navLinks = document.querySelectorAll('.nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
 
     if (navbarCollapse) {
         navLinks.forEach(link => {
