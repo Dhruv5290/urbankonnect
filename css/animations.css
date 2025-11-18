@@ -1,8 +1,8 @@
-/* UrbanKonnect - Animations */
+/* UrbanKonnect - Premium 3D Animations */
 
-/* Page Load Animation */
+/* ===== Page Load Animation ===== */
 body {
-    animation: fadeIn 0.5s ease-in;
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes fadeIn {
@@ -14,146 +14,146 @@ body {
     }
 }
 
-/* Bounce Animation */
-@keyframes bounce {
+/* ===== Advanced 3D Bounce ===== */
+@keyframes bounce3D {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+        transform: translateY(0) translateZ(0);
     }
     40% {
-        transform: translateY(-10px);
+        transform: translateY(-20px) translateZ(20px);
     }
     60% {
-        transform: translateY(-5px);
+        transform: translateY(-10px) translateZ(10px);
     }
 }
 
-/* Pulse Animation */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
+/* ===== 3D Pulse with Depth ===== */
+@keyframes pulse3D {
+    0%, 100% {
+        transform: scale(1) translateZ(0);
+        box-shadow: 0 0 0 rgba(108, 99, 255, 0);
     }
     50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
+        transform: scale(1.08) translateZ(20px);
+        box-shadow: 0 20px 60px rgba(108, 99, 255, 0.4);
     }
 }
 
-/* Slide In from Left */
-@keyframes slideInLeft {
+/* ===== 3D Slide In from Left ===== */
+@keyframes slideIn3DLeft {
     from {
-        transform: translateX(-100%);
+        transform: translateX(-100%) rotateY(-90deg);
         opacity: 0;
     }
     to {
-        transform: translateX(0);
+        transform: translateX(0) rotateY(0);
         opacity: 1;
     }
 }
 
-/* Slide In from Right */
-@keyframes slideInRight {
+/* ===== 3D Slide In from Right ===== */
+@keyframes slideIn3DRight {
     from {
-        transform: translateX(100%);
+        transform: translateX(100%) rotateY(90deg);
         opacity: 0;
     }
     to {
-        transform: translateX(0);
+        transform: translateX(0) rotateY(0);
         opacity: 1;
     }
 }
 
-/* Fade In Up */
-@keyframes fadeInUp {
+/* ===== 3D Fade In Up ===== */
+@keyframes fadeInUp3D {
     from {
-        transform: translateY(30px);
+        transform: translateY(60px) translateZ(-50px) rotateX(-15deg);
         opacity: 0;
     }
     to {
-        transform: translateY(0);
+        transform: translateY(0) translateZ(0) rotateX(0);
         opacity: 1;
     }
 }
 
-/* Zoom In */
-@keyframes zoomIn {
+/* ===== 3D Zoom In ===== */
+@keyframes zoomIn3D {
     from {
-        transform: scale(0.8);
+        transform: scale(0.5) translateZ(-200px) rotateX(45deg);
         opacity: 0;
     }
     to {
-        transform: scale(1);
+        transform: scale(1) translateZ(0) rotateX(0);
         opacity: 1;
     }
 }
 
-/* Rotate In */
-@keyframes rotateIn {
+/* ===== 3D Rotate In ===== */
+@keyframes rotateIn3D {
     from {
-        transform: rotate(-180deg);
+        transform: perspective(1000px) rotateY(-180deg) rotateX(-45deg);
         opacity: 0;
     }
     to {
-        transform: rotate(0);
+        transform: perspective(1000px) rotateY(0) rotateX(0);
         opacity: 1;
     }
 }
 
-/* Shake Animation */
-@keyframes shake {
+/* ===== 3D Flip In ===== */
+@keyframes flipIn3D {
+    from {
+        transform: perspective(1000px) rotateX(90deg);
+        transform-origin: center bottom;
+        opacity: 0;
+    }
+    to {
+        transform: perspective(1000px) rotateX(0);
+        transform-origin: center bottom;
+        opacity: 1;
+    }
+}
+
+/* ===== 3D Swing Animation ===== */
+@keyframes swing3D {
     0%, 100% {
-        transform: translateX(0);
+        transform: perspective(1000px) rotateY(0) rotateX(0);
     }
-    10%, 30%, 50%, 70%, 90% {
-        transform: translateX(-5px);
+    25% {
+        transform: perspective(1000px) rotateY(15deg) rotateX(10deg);
     }
-    20%, 40%, 60%, 80% {
-        transform: translateX(5px);
+    75% {
+        transform: perspective(1000px) rotateY(-15deg) rotateX(-10deg);
     }
 }
 
-/* Float Animation */
-@keyframes float {
+/* ===== 3D Float with Rotation ===== */
+@keyframes float3D {
     0%, 100% {
-        transform: translateY(0);
+        transform: translateY(0) translateZ(0) rotateZ(0deg);
+    }
+    33% {
+        transform: translateY(-30px) translateZ(20px) rotateZ(5deg);
+    }
+    66% {
+        transform: translateY(-15px) translateZ(10px) rotateZ(-5deg);
+    }
+}
+
+/* ===== Glow Pulse ===== */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(108, 99, 255, 0.3),
+                    0 0 40px rgba(108, 99, 255, 0.2),
+                    0 0 60px rgba(108, 99, 255, 0.1);
     }
     50% {
-        transform: translateY(-20px);
+        box-shadow: 0 0 40px rgba(108, 99, 255, 0.6),
+                    0 0 80px rgba(108, 99, 255, 0.4),
+                    0 0 120px rgba(108, 99, 255, 0.2);
     }
 }
 
-/* Glow Animation */
-@keyframes glow {
-    0%, 100% {
-        box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(230, 126, 34, 0.8);
-    }
-}
-
-/* Typing Animation */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-/* Blink Animation */
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-}
-
-/* Gradient Animation */
+/* ===== Gradient Shift ===== */
 @keyframes gradientShift {
     0% {
         background-position: 0% 50%;
@@ -166,56 +166,179 @@ body {
     }
 }
 
-/* Loading Spinner */
-@keyframes spin {
+/* ===== Infinite 3D Spin ===== */
+@keyframes spin3D {
     0% {
-        transform: rotate(0deg);
+        transform: perspective(1000px) rotateY(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: perspective(1000px) rotateY(360deg);
     }
 }
 
-/* Apply Animations to Elements */
+/* ===== 3D Card Flip ===== */
+@keyframes cardFlip {
+    from {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateY(180deg);
+    }
+}
+
+/* ===== Depth Lift ===== */
+@keyframes depthLift {
+    from {
+        transform: translateZ(0) scale(1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+    to {
+        transform: translateZ(50px) scale(1.05);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3), 0 15px 40px rgba(108, 99, 255, 0.4);
+    }
+}
+
+/* ===== Shimmer Effect ===== */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* ===== Ripple Expand ===== */
+@keyframes rippleExpand {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ===== Slide Out Right ===== */
+@keyframes slideOutRight {
+    to {
+        transform: translateX(100%) rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+/* ===== Slide In Up 3D ===== */
+@keyframes slideInUp3D {
+    from {
+        transform: translateY(100%) rotateX(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) rotateX(0);
+        opacity: 1;
+    }
+}
+
+/* ===== Fade In Down ===== */
+@keyframes fadeInDown3D {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) translateZ(-30px) rotateX(15deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateZ(0) rotateX(0);
+    }
+}
+
+/* ===== Scale In with Depth ===== */
+@keyframes scaleInDepth {
+    from {
+        transform: scale(0.8) translateZ(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateZ(0);
+        opacity: 1;
+    }
+}
+
+/* ===== Parallax Background ===== */
+@keyframes parallaxBg {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px);
+    }
+}
+
+/* ===== Count Up Animation ===== */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===== Apply Animations to Elements ===== */
 
 /* Hero Section Animations */
 .hero-title {
-    animation: fadeInUp 1s ease-out;
+    animation: fadeInUp3D 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-subtitle {
-    animation: fadeInUp 1s ease-out 0.2s both;
+    animation: fadeInUp3D 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
 }
 
 .hero-buttons {
-    animation: fadeInUp 1s ease-out 0.4s both;
+    animation: fadeInUp3D 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+}
+
+.hero-stats {
+    animation: fadeInUp3D 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
 }
 
 .hero-image {
-    animation: float 6s ease-in-out infinite;
+    animation: float3D 8s ease-in-out infinite;
 }
 
-/* Icon Animations on Hover */
+/* 3D Icon Animations */
 .service-icon,
 .contact-icon,
-.process-icon {
-    transition: all 0.3s ease;
+.process-icon,
+.value-icon,
+.why-icon,
+.card-icon {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
 .service-card:hover .service-icon,
 .contact-info-card:hover .contact-icon,
-.process-card:hover .process-icon {
-    transform: rotateY(360deg);
+.process-card:hover .process-icon,
+.value-card:hover .value-icon,
+.why-card:hover .why-icon,
+.mission-card:hover .card-icon,
+.vision-card:hover .card-icon {
+    animation: spin3D 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Button Hover Effects */
+/* Button 3D Hover Effects */
 .btn {
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
-.btn::before {
+.btn::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -223,306 +346,469 @@ body {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    transition: width 0.6s ease, height 0.6s ease;
 }
 
-.btn:hover::before {
-    width: 300px;
-    height: 300px;
+.btn:hover::after {
+    width: 400px;
+    height: 400px;
 }
 
-/* Card Hover Effects */
+.btn:active {
+    transform: translateY(2px) scale(0.98);
+}
+
+/* Card 3D Hover Effects */
 .service-card,
 .portfolio-card,
 .case-study-card,
 .blog-card,
-.team-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.team-card,
+.value-card,
+.why-card,
+.mission-card,
+.vision-card {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
-.service-card:hover,
-.portfolio-card:hover,
-.case-study-card:hover,
-.blog-card:hover,
-.team-card:hover {
-    transform: translateY(-10px);
-}
-
-/* Image Zoom Effect */
+/* Image Zoom and Rotate on Hover */
 .portfolio-image img,
 .case-image img,
-.blog-image img {
-    transition: transform 0.5s ease;
+.blog-image img,
+.team-image img {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-card:hover .portfolio-image img,
 .case-study-card:hover .case-image img,
-.blog-card:hover .blog-image img {
-    transform: scale(1.1);
+.blog-card:hover .blog-image img,
+.team-card:hover .team-image img {
+    transform: scale(1.15) rotate(2deg);
 }
 
-/* Link Hover Effects */
-.service-link,
-.nav-link,
-.footer-links a {
+/* Navigation Link 3D Effect */
+.nav-link {
     position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.service-link::after,
-.nav-link::after,
-.footer-links a::after {
+.nav-link::after {
     content: '';
     position: absolute;
     bottom: -2px;
-    left: 0;
+    left: 50%;
     width: 0;
-    height: 2px;
-    background: var(--secondary-color);
-    transition: width 0.3s ease;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    transform: translateX(-50%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
 }
 
-.service-link:hover::after,
 .nav-link:hover::after,
-.footer-links a:hover::after {
+.nav-link.active::after {
     width: 100%;
 }
 
-/* Counter Animation (will be triggered by JavaScript) */
+/* Service Link Arrow Animation */
+.service-link,
+.portfolio-link,
+.case-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-link::after {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-link:hover::after {
+    transform: translateX(8px);
+}
+
+/* Counter Animation */
 .stat-number,
 .achievement-number {
-    transition: all 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.counting {
+    animation: countUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Testimonial Slider Animation */
 .testimonial-card {
     opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
+    animation: fadeInUp3D 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .swiper-slide-active .testimonial-card {
     animation-delay: 0.2s;
 }
 
-/* Social Icons Animation */
+/* Social Icons 3D Rotation */
 .social-links a,
 .team-social a {
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
 .social-links a:hover,
 .team-social a:hover {
-    transform: translateY(-5px) rotate(360deg);
+    transform: translateY(-8px) rotateY(360deg) scale(1.1);
 }
 
-/* Form Input Focus Effect */
+/* Form Input 3D Focus Effect */
 .form-control,
 .form-select {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
 .form-control:focus,
 .form-select:focus {
-    transform: scale(1.02);
+    transform: translateZ(10px) scale(1.02);
 }
 
 /* Loading Animation */
 .loading {
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    border: 5px solid var(--light-gray);
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(108, 99, 255, 0.1);
     border-top-color: var(--secondary-color);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin3D 1s linear infinite;
 }
 
-/* Skeleton Loading */
+/* Skeleton Loading with Shimmer */
 .skeleton {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0px,
+        #e8e8e8 40px,
+        #f0f0f0 80px
+    );
+    background-size: 1000px;
+    animation: shimmer 2s infinite linear;
 }
 
-@keyframes loading {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
-}
-
-/* Progress Bar Animation */
+/* Progress Bar 3D Animation */
 .progress-bar {
-    animation: progressBar 2s ease forwards;
+    animation: progressBar 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform-style: preserve-3d;
 }
 
 @keyframes progressBar {
     from {
         width: 0;
+        transform: translateZ(0);
     }
-}
-
-/* Notification Animation */
-.notification {
-    animation: slideInRight 0.5s ease, slideOutRight 0.5s ease 3s forwards;
-}
-
-@keyframes slideOutRight {
     to {
-        transform: translateX(100%);
-        opacity: 0;
+        transform: translateZ(5px);
     }
 }
 
-/* Back to Top Button Animation */
+/* Notification Slide In */
+.notification {
+    animation: slideIn3DRight 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+               slideOutRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) 3.5s forwards;
+}
+
+/* Back to Top Button 3D */
 .back-to-top {
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .back-to-top:hover {
-    animation: pulse 1s ease infinite;
+    animation: pulse3D 1s ease infinite;
 }
 
-/* WhatsApp Button Animation */
+/* WhatsApp Button Pulse */
 .whatsapp-float {
-    animation: pulse 2s ease infinite;
+    animation: pulse3D 3s ease infinite;
 }
 
-/* Cookie Consent Animation */
+.whatsapp-float:hover {
+    animation: none;
+}
+
+/* Cookie Consent Slide Up */
 .cookie-consent {
-    animation: slideInUp 0.5s ease;
+    animation: slideInUp3D 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes slideInUp {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
-/* Scroll Reveal Animations (used with AOS) */
+/* Scroll Reveal Animations with AOS */
 [data-aos] {
     transition-property: transform, opacity;
+    transition-duration: 0.8s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dropdown Animation */
-.dropdown-menu {
-    animation: fadeInDown 0.3s ease;
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Modal Animation */
-.modal.fade .modal-dialog {
-    transform: scale(0.8);
+[data-aos="fade-up"] {
+    transform: translateY(60px) translateZ(-30px);
     opacity: 0;
-    transition: all 0.3s ease;
 }
 
-.modal.show .modal-dialog {
-    transform: scale(1);
+[data-aos="fade-up"].aos-animate {
+    transform: translateY(0) translateZ(0);
     opacity: 1;
 }
 
-/* Accordion Animation */
+[data-aos="fade-down"] {
+    transform: translateY(-60px) translateZ(-30px);
+    opacity: 0;
+}
+
+[data-aos="fade-down"].aos-animate {
+    transform: translateY(0) translateZ(0);
+    opacity: 1;
+}
+
+[data-aos="fade-right"] {
+    transform: translateX(-60px) rotateY(-15deg);
+    opacity: 0;
+}
+
+[data-aos="fade-right"].aos-animate {
+    transform: translateX(0) rotateY(0);
+    opacity: 1;
+}
+
+[data-aos="fade-left"] {
+    transform: translateX(60px) rotateY(15deg);
+    opacity: 0;
+}
+
+[data-aos="fade-left"].aos-animate {
+    transform: translateX(0) rotateY(0);
+    opacity: 1;
+}
+
+[data-aos="zoom-in"] {
+    transform: scale(0.8) translateZ(-100px);
+    opacity: 0;
+}
+
+[data-aos="zoom-in"].aos-animate {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+}
+
+[data-aos="flip-up"] {
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+}
+
+[data-aos="flip-up"].aos-animate {
+    transform: perspective(1000px) rotateX(0);
+    opacity: 1;
+}
+
+/* Dropdown Menu 3D Animation */
+.dropdown-menu {
+    animation: fadeInDown3D 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top center;
+}
+
+/* Modal 3D Entrance */
+.modal.fade .modal-dialog {
+    transform: scale(0.7) translateZ(-200px) rotateX(45deg);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1) translateZ(0) rotateX(0);
+    opacity: 1;
+}
+
+/* Accordion 3D Animation */
 .accordion-collapse {
-    transition: height 0.3s ease;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.accordion-button:not(.collapsed) {
+    transform: translateZ(10px);
 }
 
 /* Portfolio Filter Animation */
 .portfolio-item {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
 .portfolio-item.hide {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.6) translateZ(-100px) rotateY(90deg);
     height: 0;
     margin: 0;
     padding: 0;
 }
 
-/* Tag Cloud Animation */
+/* Tag Cloud 3D Hover */
 .tag {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
 .tag:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px) translateZ(10px) scale(1.05);
 }
 
-/* Number Counter Animation */
-@keyframes countUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.counting {
-    animation: countUp 0.5s ease;
-}
-
-/* Ripple Effect */
+/* Ripple Effect on Click */
 .ripple {
-    position: relative;
-    overflow: hidden;
-}
-
-.ripple::after {
-    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    background: rgba(255, 255, 255, 0.6);
+    animation: rippleExpand 0.6s cubic-bezier(0, 0, 0.2, 1);
+    pointer-events: none;
 }
 
-.ripple:active::after {
-    width: 200px;
-    height: 200px;
-}
-
-/* Text Highlight Animation */
-.highlight-text {
-    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+/* Text Gradient Shift */
+.highlight-text,
+.animated-gradient {
+    background: linear-gradient(
+        90deg,
+        var(--secondary-color),
+        var(--accent-color),
+        var(--accent-gold),
+        var(--secondary-color)
+    );
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     animation: gradientShift 3s ease infinite;
 }
 
-/* Smooth Scroll */
+/* Smooth Scroll Behavior */
 html {
     scroll-behavior: smooth;
 }
 
-/* Focus Visible (Accessibility) */
+/* Focus Visible for Accessibility */
 *:focus-visible {
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Parallax Scroll Effect */
+.parallax-element {
+    transition: transform 0.5s cubic-bezier(0, 0, 0, 1);
+    will-change: transform;
+}
+
+/* Stagger Animation Delays */
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+.stagger-item:nth-child(7) { animation-delay: 0.7s; }
+.stagger-item:nth-child(8) { animation-delay: 0.8s; }
+
+/* Achievement Icon Spin */
+.achievement-icon {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.achievement-card:hover .achievement-icon {
+    animation: spin3D 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Breadcrumb Animation */
+.breadcrumb-item {
+    animation: fadeInDown3D 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+}
+
+.breadcrumb-item:nth-child(1) { animation-delay: 0.1s; }
+.breadcrumb-item:nth-child(2) { animation-delay: 0.2s; }
+.breadcrumb-item:nth-child(3) { animation-delay: 0.3s; }
+
+/* Filter Button Pulse on Active */
+.filter-btn.active {
+    animation: pulse3D 2s ease infinite;
+}
+
+/* Section Tag Line Animation */
+.section-tag::before {
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* 3D Tilt Effect on Mouse Move (Applied via JS) */
+.tilt-3d {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Magnetic Effect (Applied via JS) */
+.magnetic {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cursor Glow Effect */
+.cursor-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+        circle,
+        rgba(108, 99, 255, 0.15) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9998;
+    mix-blend-mode: screen;
+    transition: opacity 0.3s ease;
+}
+
+/* Page Transition */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    z-index: 10000;
+    transform: translateY(-100%);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition.active {
+    transform: translateY(0);
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px) translateZ(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Glow on Scroll (Applied via JS) */
+.glow-on-scroll {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-on-scroll.glowing {
+    animation: glowPulse 2s ease-in-out infinite;
 }
 
 /* Disable Animations for Reduced Motion */
@@ -533,5 +819,34 @@ html {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
+}
+
+/* Performance Optimization */
+.service-card,
+.portfolio-card,
+.case-study-card,
+.blog-card,
+.team-card,
+.value-card,
+.why-card {
+    will-change: transform, box-shadow;
+}
+
+.service-icon,
+.contact-icon,
+.process-icon {
+    will-change: transform;
+}
+
+/* Perspective Container for 3D Effects */
+.perspective-container {
+    perspective: 1000px;
+    perspective-origin: center;
+}
+
+/* 3D Transform Preserve */
+.preserve-3d {
+    transform-style: preserve-3d;
 }
