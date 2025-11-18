@@ -135,14 +135,14 @@ urbankonnect/
 ### 1. Update Website Information
 
 **In all HTML files:**
-- Replace phone numbers: `+91-9876543210`
+- Replace phone numbers: `+91-72488 77772`
 - Replace email addresses: `info@urbankonnect.com`
-- Replace address: `123 Rajpur Road, Dehradun`
+- Replace address: `823 First Floor Indira Nagar Colony Road, Vasant Vihar Phase 2, Dehradun`
 - Update social media links
 
 **Example (in header):**
 ```html
-<a href="tel:+919876543210">+91-9876543210</a>
+<a href="tel:+917248877772">+91-72488 77772</a>
 <a href="mailto:info@urbankonnect.com">info@urbankonnect.com</a>
 ```
 
@@ -361,12 +361,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 **UrbanKonnect**
 - Website: [www.urbankonnect.com](https://www.urbankonnect.com)
 - Email: info@urbankonnect.com
-- Phone: +91-9876543210
+- Phone: +91-72488 77772
 - Location: Dehradun, Uttarakhand, India
 
 ## 🤝 Support
 
-For support, email info@urbankonnect.com or call +91-9876543210.
+For support, email info@urbankonnect.com or call +91-72488 77772.
 
 ## 📱 Connect With Us
 
