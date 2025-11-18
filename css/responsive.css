@@ -37,6 +37,14 @@
         position: static;
         margin-top: 40px;
     }
+
+    /* Service Cards - Center titles on tablets */
+    .service-card {
+        text-align: center;
+    }
+    .service-card h3 {
+        text-align: center;
+    }
 }
 
 /* Mobile (320px - 767px) */
@@ -99,7 +107,13 @@
     .section-description { font-size: 16px; }
 
     /* Service Cards */
-    .service-card { padding: 30px 20px; }
+    .service-card {
+        padding: 30px 20px;
+        text-align: center;
+    }
+    .service-card h3 {
+        text-align: center;
+    }
     .service-icon {
         width: 60px;
         height: 60px;
