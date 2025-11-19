@@ -290,7 +290,7 @@
 
         let currentPercentage = 0;
         const targetPercentage = 100;
-        const loadingDuration = 5000; // 5 seconds
+        const loadingDuration = 10000; // 10 seconds
         const updateInterval = 30; // Update every 30ms
         const increment = (targetPercentage / (loadingDuration / updateInterval));
 
