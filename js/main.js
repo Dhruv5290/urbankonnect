@@ -291,23 +291,24 @@
             }, 600); // Match the fade-out animation duration
         };
 
-        // Hide preloader after window loads or after 2 seconds, whichever comes first
+        // Hide preloader after minimum display time
         let loaded = false;
+        const minDisplayTime = 3500; // Show for at least 3.5 seconds
 
         window.addEventListener('load', function() {
             if (!loaded) {
                 loaded = true;
-                setTimeout(hidePreloader, 500);
+                setTimeout(hidePreloader, minDisplayTime);
             }
         });
 
-        // Fallback: hide after 2 seconds even if window.load doesn't fire
+        // Fallback: hide after minimum time even if window.load doesn't fire
         setTimeout(() => {
             if (!loaded) {
                 loaded = true;
                 hidePreloader();
             }
-        }, 2000);
+        }, minDisplayTime);
     }
 
     // Accordion Enhanced Functionality
