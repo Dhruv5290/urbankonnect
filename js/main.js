@@ -281,77 +281,33 @@
         });
     }
 
-    // Futuristic Preloader with Loading Animation
+    // Animated Logo Preloader
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        const percentageElement = preloader.querySelector('.loading-percentage');
-        const loadingBarFill = preloader.querySelector('.loading-bar-fill');
-        const loadingStatus = preloader.querySelector('.loading-status');
+        const hidePreloader = () => {
+            preloader.classList.add('hidden');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 600); // Match the fade-out animation duration
+        };
 
-        let currentPercentage = 0;
-        const targetPercentage = 100;
-        const loadingDuration = 10000; // 10 seconds
-        const updateInterval = 30; // Update every 30ms
-        const increment = (targetPercentage / (loadingDuration / updateInterval));
+        // Hide preloader after window loads or after 2 seconds, whichever comes first
+        let loaded = false;
 
-        const statusMessages = [
-            'Initializing Systems...',
-            'Loading Assets...',
-            'Connecting Servers...',
-            'Preparing Interface...',
-            'Almost Ready...',
-            'Launch Complete!'
-        ];
-
-        let statusIndex = 0;
-
-        // Animate loading percentage
-        const loadingInterval = setInterval(() => {
-            currentPercentage += increment;
-
-            if (currentPercentage >= targetPercentage) {
-                currentPercentage = targetPercentage;
-                clearInterval(loadingInterval);
-
-                // Hide preloader after a short delay
-                setTimeout(() => {
-                    preloader.classList.add('hidden');
-                    setTimeout(() => {
-                        preloader.style.display = 'none';
-                    }, 800); // Match the fade-out animation duration
-                }, 300);
-            }
-
-            // Update percentage display
-            percentageElement.textContent = Math.floor(currentPercentage) + '%';
-            loadingBarFill.style.width = currentPercentage + '%';
-
-            // Update status message based on percentage
-            const newStatusIndex = Math.floor((currentPercentage / 100) * (statusMessages.length - 1));
-            if (newStatusIndex !== statusIndex && newStatusIndex < statusMessages.length) {
-                statusIndex = newStatusIndex;
-                loadingStatus.textContent = statusMessages[statusIndex];
-            }
-        }, updateInterval);
-
-        // Ensure preloader is hidden after window load
         window.addEventListener('load', function() {
-            // If the interval is still running, speed it up
-            if (currentPercentage < targetPercentage) {
-                clearInterval(loadingInterval);
-                currentPercentage = targetPercentage;
-                percentageElement.textContent = '100%';
-                loadingBarFill.style.width = '100%';
-                loadingStatus.textContent = statusMessages[statusMessages.length - 1];
-
-                setTimeout(() => {
-                    preloader.classList.add('hidden');
-                    setTimeout(() => {
-                        preloader.style.display = 'none';
-                    }, 800);
-                }, 300);
+            if (!loaded) {
+                loaded = true;
+                setTimeout(hidePreloader, 500);
             }
         });
+
+        // Fallback: hide after 2 seconds even if window.load doesn't fire
+        setTimeout(() => {
+            if (!loaded) {
+                loaded = true;
+                hidePreloader();
+            }
+        }, 2000);
     }
 
     // Accordion Enhanced Functionality
