@@ -457,9 +457,13 @@ img {
         display: none !important;
     }
 
+    .hero-section {
+        padding-top: 100px;
+    }
+
     .hero-section .row {
         min-height: auto !important;
-        padding: 60px 0;
+        padding: 60px 0 60px 0;
     }
 
     .hero-section .col-lg-7 {
@@ -478,8 +482,12 @@ img {
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        padding-top: 80px;
+    }
+
     .hero-section .row {
-        padding: 40px 0;
+        padding: 40px 0 40px 0;
     }
 
     .hero-title {
@@ -670,6 +678,7 @@ img {
     background: linear-gradient(135deg, #0A0E27 0%, #1A1F3A 50%, #2D1B4E 100%);
     color: #fff;
     overflow: hidden;
+    padding-top: 80px;
 }
 
 /* Animated Background Shapes */
