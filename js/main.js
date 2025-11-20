@@ -293,7 +293,7 @@
 
         // Hide preloader after minimum display time
         let loaded = false;
-        const minDisplayTime = 2000; // Show for at least 2 seconds
+        const minDisplayTime = 1000; // Show for at least 1 second
 
         window.addEventListener('load', function() {
             if (!loaded) {
