@@ -446,70 +446,8 @@ img {
 
 /* Preloader Responsive Styles */
 @media (max-width: 768px) {
-    .logo-text-preloader {
-        font-size: 48px;
-        animation: none;
-        transform: translateY(0) !important;
-    }
-
-    .highlight-preloader {
-        animation: none;
-        background: linear-gradient(135deg, #4285f4, #8a2be2, #ff0096);
-        background-position: 50% 50%;
-    }
-
-    .preloader-content {
-        padding: 0 20px;
-        max-width: 100%;
-    }
-
-    .logo-preloader {
-        max-width: 100%;
-    }
-
-    .wave {
-        animation-duration: 20s;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-text-preloader {
-        font-size: 38px;
-        animation: none;
-        transform: translateY(0) !important;
-    }
-
-    .highlight-preloader {
-        animation: none;
-        background: linear-gradient(135deg, #4285f4, #8a2be2, #ff0096);
-        background-position: 50% 50%;
-    }
-
-    .preloader-content {
-        padding: 0 25px;
-        max-width: 100%;
-    }
-
-    .logo-preloader {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 360px) {
-    .logo-text-preloader {
-        font-size: 32px;
-        animation: none;
-        transform: translateY(0) !important;
-    }
-
-    .highlight-preloader {
-        animation: none;
-        background: linear-gradient(135deg, #4285f4, #8a2be2, #ff0096);
-        background-position: 50% 50%;
-    }
-
-    .preloader-content {
-        padding: 0 20px;
+    #preloader {
+        display: none !important;
     }
 }
 
