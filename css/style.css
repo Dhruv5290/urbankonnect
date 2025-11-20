@@ -456,6 +456,39 @@ img {
     .hero-image {
         display: none !important;
     }
+
+    .hero-section .row {
+        min-height: auto !important;
+        padding: 60px 0;
+    }
+
+    .hero-section .col-lg-7 {
+        max-width: 100%;
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section .row {
+        padding: 40px 0;
+    }
+
+    .hero-title {
+        font-size: 32px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 16px !important;
+    }
 }
 
 /* ===== Header/Navigation ===== */
