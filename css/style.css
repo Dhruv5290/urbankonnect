@@ -451,6 +451,13 @@ img {
     }
 }
 
+/* Hero Section Responsive Styles */
+@media (max-width: 991px) {
+    .hero-image {
+        display: none !important;
+    }
+}
+
 /* ===== Header/Navigation ===== */
 .header {
     background: rgba(255, 255, 255, 0.8);
